@@ -8,12 +8,22 @@ WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Chopsticks Game")
 WHITE = (255,255,255)
 BLACK = (0, 0, 0)
+BLUE = WHITE
 FPS = 30
 pygame.init()
-font = pygame.font.Font(None, 36)
+font = pygame.font.SysFont(None, 35)
+font1 = pygame.font.SysFont(None, 25)
+
+def draw_text(text, x, y, text_col):
+    img = font.render(text, True, text_col)
+    WIN.blit(img, (x, y))
+def draw_text1(text, x, y, text_col):
+    img = font1.render(text, True, text_col)
+    WIN.blit(img, (x, y))
+
 
 def draw_window():
-    WIN.fill(WHITE)
+    WIN.fill(BLUE)
 
     pygame.display.update()
 
@@ -822,16 +832,6 @@ def main():
                     index_finger_extended_left = True
                     extend_index_finger3()
 
-                # Up arrow key
-                if event.key == pygame.K_UP:
-                    middle_finger_extended_up = True
-                    extend_middle_finger4()
-
-                # Down arrow key
-                if event.key == pygame.K_DOWN:
-                    ring_finger_extended_down = True
-                    extend_ring_finger4()
-
                 # Key 1
                 if event.key == pygame.K_1:
                     middle_finger_extended_1 = True
@@ -907,21 +907,86 @@ def main():
                     extend_middle_finger1()
                     extend_ring_finger1()
                     extend_pinky_finger1()
+                
+                # Character 'c'
+                if event.key == pygame.K_c:
+                    middle_finger_extended_4 = True
+                    ring_finger_extended_5 = True
+                    extend_middle_finger2()
+                    extend_ring_finger2()
+                    extend_pinky_finger2()
+                
+                # Character 'd'
+                if event.key == pygame.K_d:
+                    middle_finger_extended_4 = True
+                    ring_finger_extended_5 = True
+                    pinky_finger_extended_6 = True
+                    extend_middle_finger2()
+                    extend_ring_finger2()
+                    extend_pinky_finger2()
+                
+                # Character 'e'
+                if event.key == pygame.K_e:
+                    middle_finger_extended_7 = True
+                    ring_finger_extended_8 = True
+                    extend_middle_finger3()
+                    extend_ring_finger3()
 
-                    
+                 # Character 'f'
+                if event.key == pygame.K_f:
+                    middle_finger_extended_10 = True
+                    ring_finger_extended_11 = True
+                    extend_middle_finger3()
+                    extend_ring_finger3()
+                
+                # Character 'g'
+                if event.key == pygame.K_g:
+                    middle_finger_extended_10 = True
+                    ring_finger_extended_11 = True
+                    extend_middle_finger4()
+                    extend_ring_finger4()
+
+                # Character 'h'
+                if event.key == pygame.K_h:
+                    middle_finger_extended_10 = True
+                    ring_finger_extended_11 = True
+                    pinky_finger_extended_12 = True
+                    extend_middle_finger4()
+                    extend_ring_finger4()
+                    extend_pinky_finger4()
+           
 
         draw_window()
         draw_something()
+        extend_index_finger1()
+        extend_index_finger2()
+        extend_index_finger3()
+        extend_index_finger4()
+        draw_text("KEY: Hand1 : 1, Hand2: 2, Hand3: 3, Hand4: 4 ", 0, 1, (0, 0, 0))  # Text, x, y, and color
+        draw_text1("1: Extend Middle for 1",0,35, (0,0,0))
+        draw_text1("2: Extend Ring for 1",0,57, (0,0,0))
+        draw_text1("3: Extend Pinky for 1",0,79, (0,0,0))
+        draw_text1("4: Extend Middle for 2",0,101, (0,0,0))
+        draw_text1("5: Extend Ring for 2",0,123, (0,0,0))
+        draw_text1("6: Extend Pinky for 2",0,145, (0,0,0))
+        draw_text1("7: Extend Middle for 3",235,35, (0,0,0))
+        draw_text1("8: Extend Ring for 3",235,57, (0,0,0))
+        draw_text1("9: Extend Pinky for 3",235,79, (0,0,0))
+        draw_text1("0: Extend Middle for 4",235,101, (0,0,0))
+        draw_text1("-: Extend Ring for 4",235,123, (0,0,0))
+        draw_text1("=: Extend Pinky for 4",235,145, (0,0,0))
+        draw_text1("a: Extend Middle and Ring for 1",455,35, (0,0,0))
+        draw_text1("b: Extend Middle, Ring, and Pinky for 1",455,57, (0,0,0))
+        draw_text1("c: Extend Middle and Ring for 2",455,79, (0,0,0))
+        draw_text1("d: Extend Middle, Ring, and Piny for 2",455,101, (0,0,0))
+        draw_text1("e:Extend Middle and Ring for 3",455,123, (0,0,0))
+        draw_text1("f:Extend Middle,Ring, and Piny for 3" ,455,145, (0,0,0))
 
         # Permanently redraw fingers based on key presses
         if index_finger_extended_right:
             extend_index_finger1()
         if index_finger_extended_left:
             extend_index_finger3()
-        if middle_finger_extended_up:
-            extend_middle_finger4()
-        if ring_finger_extended_down:
-            extend_ring_finger4()
         if middle_finger_extended_1:
             extend_middle_finger1()
         if ring_finger_extended_2:
