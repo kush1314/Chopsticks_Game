@@ -1,7 +1,6 @@
 import pygame
 import os
 import sys
-import players1
 #orginally set to 950, 500
 WIDTH, HEIGHT = 1100, 500
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
